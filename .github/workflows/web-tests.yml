@@ -2,10 +2,12 @@ name: Web Tests
 
 
 on:
-  workflow_call:
+  push:
+    branches:
+      - main
 
 concurrency:
-  group: web-tests-${{ github.head_ref || github.run_id }}
+  group: web-tests-${{ github.ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
