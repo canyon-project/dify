@@ -41,14 +41,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run git-diff
-        run: npx @canyonjs/git-diff
-
       - name: Run tests
         run: pnpm test:coverage
 
       - name: Upload coverage to Canyon
-        uses: canyon-project/canyon-action@v1.0.18
+        uses: canyon-project/canyon-action@v1.0.20
         with:
           coverage-file: web/coverage/coverage-final.json
           canyon-url: https://app.canyonjs.io
@@ -59,15 +56,5 @@ jobs:
         with:
           name: web-coverage-report
           path: web/coverage
-          retention-days: 30
-          if-no-files-found: error
-
-      - name: Upload Diff Artifact
-        uses: actions/upload-artifact@v6
-        with:
-          name: web-diff
-          path: |
-            web/diff.txt
-            web/diff.json
           retention-days: 30
           if-no-files-found: error
