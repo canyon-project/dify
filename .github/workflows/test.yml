@@ -5,11 +5,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-
-concurrency:
-  group: web-tests-${{ github.ref || github.run_id }}
-  cancel-in-progress: true
-
 jobs:
   test:
     name: Web Tests
