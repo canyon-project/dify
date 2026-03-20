@@ -24,20 +24,5 @@ jobs:
         uses: actions/checkout@v6
         with:
           persist-credentials: false
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          package_json_file: web/package.json
-          run_install: false
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: pnpm
-          cache-dependency-path: ./web/pnpm-lock.yaml
-
-
       - name: Upload coverage to Canyon
         uses: canyon-project/canyon-action@v1.0.19
