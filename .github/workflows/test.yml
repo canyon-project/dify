@@ -20,4 +20,4 @@ jobs:
         with:
           persist-credentials: false
       - name: Upload coverage to Canyon
-        uses: canyon-project/canyon-action@v1.0.19
+        uses: canyon-project/canyon-action@v1.0.20
